@@ -228,17 +228,38 @@
             transition-delay: 0.4s;
         }
 
-        .marquee-container {
-            display: flex;
-            width: 200%;
-            animation: scroll 30s linear infinite;
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
         }
 
-        .marquee-container:hover {
+        .marquee-track {
+            display: inline-flex;
+            white-space: nowrap;
+            animation: marquee 30s infinite linear;
+        }
+
+        .marquee-track:hover {
             animation-play-state: paused;
         }
 
-        @keyframes scroll {
+        .marquee-item {
+            display: inline-block;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin: 0 1.2rem;
+        }
+
+        .marquee-dot {
+            display: inline-block;
+            white-space: nowrap;
+            flex-shrink: 0;
+            color: #c9973a;
+            font-size: 6px;
+        }
+
+        @keyframes marquee {
             0% {
                 transform: translateX(0);
             }
@@ -425,34 +446,42 @@
     </section>
 
     <!-- Marquee -->
-    <div class="bg-brand-navy text-white py-5 overflow-hidden border-y border-white/5">
-        <div class="marquee-container font-display text-[11px] tracking-widest uppercase font-medium">
-            <div class="flex w-1/2 justify-around items-center shrink-0">
-                <span>Gold Medalist</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>FRCP London</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>Vancouver 2015</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>Milan WCD</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>310+ Publications</span><span class="text-brand-gold text-[6px]"><i
+    <div class="bg-brand-navy text-white py-5 border-y border-white/5 marquee-wrapper">
+        <div class="marquee-track font-display text-[11px] tracking-widest uppercase font-medium">
+            <div class="inline-flex items-center shrink-0 whitespace-nowrap">
+                <span class="marquee-item">Gold Medalist</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>Pigment International</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">FRCP London</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>Clinical & Exp Derm</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">Vancouver 2015</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>KPC Medical College</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">Milan WCD</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">310+ Publications</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">Pigment International</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">Clinical & Exp Derm</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">KPC Medical College</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
             </div>
-            <div class="flex w-1/2 justify-around items-center shrink-0">
-                <span>Gold Medalist</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>FRCP London</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>Vancouver 2015</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>Milan WCD</span><span class="text-brand-gold text-[6px]"><i class="fas fa-circle"></i></span>
-                <span>310+ Publications</span><span class="text-brand-gold text-[6px]"><i
+            <div class="inline-flex items-center shrink-0 whitespace-nowrap">
+                <span class="marquee-item">Gold Medalist</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>Pigment International</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">FRCP London</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>Clinical & Exp Derm</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">Vancouver 2015</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
-                <span>KPC Medical College</span><span class="text-brand-gold text-[6px]"><i
+                <span class="marquee-item">Milan WCD</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">310+ Publications</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">Pigment International</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">Clinical & Exp Derm</span><span class="marquee-dot"><i
+                        class="fas fa-circle"></i></span>
+                <span class="marquee-item">KPC Medical College</span><span class="marquee-dot"><i
                         class="fas fa-circle"></i></span>
             </div>
         </div>
@@ -493,664 +522,689 @@
             </div>
         </div>
     </section><!-- About Section -->
-<section id="about" class="py-24 bg-brand-cream relative">
-    <div class="container mx-auto px-6 lg:px-12">
-        <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+    <section id="about" class="py-24 bg-brand-cream relative">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 
-            <!-- Left: Photo & Badge -->
-            <div class="lg:col-span-5 relative reveal">
-                <!-- Editorial Mask / Crop -->
-                <div class="relative w-full aspect-[3/4] overflow-hidden about-mask bg-brand-navy shadow-2xl">
-                    <img src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg"
-                        alt="Dr. Das clinical profile"
-                        class="w-full h-full object-cover object-[center_top] mix-blend-luminosity opacity-90 img-zoom"
-                        loading="lazy">
-                    <!-- Duotone tint -->
-                    <div class="absolute inset-0 bg-brand-gold/10 mix-blend-color"></div>
-                </div>
-
-                <!-- Overlapping Dark Card -->
-                <div
-                    class="absolute -bottom-8 -right-4 lg:-right-12 bg-brand-navy p-6 shadow-2xl z-20 w-72 flex flex-col justify-center hero-float border-t-2 border-brand-gold">
-                    <div class="font-serif text-2xl text-white mb-1">Dr. Anupam Das</div>
-                    <div class="font-display text-[10px] text-brand-gold uppercase tracking-widest mb-4">FRCP (London),
-                        FACDI</div>
-                    <div class="flex items-center text-white/70 text-xs font-sans border-t border-white/10 pt-3">
-                        <i class="fas fa-id-card mr-3 text-brand-gold"></i>
-                        WBMC Reg. 67385
+                <!-- Left: Photo & Badge -->
+                <div class="lg:col-span-5 relative reveal">
+                    <!-- Editorial Mask / Crop -->
+                    <div class="relative w-full aspect-[3/4] overflow-hidden about-mask bg-brand-navy shadow-2xl">
+                        <img src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg"
+                            alt="Dr. Das clinical profile"
+                            class="w-full h-full object-cover object-[center_top] mix-blend-luminosity opacity-90 img-zoom"
+                            loading="lazy">
+                        <!-- Duotone tint -->
+                        <div class="absolute inset-0 bg-brand-gold/10 mix-blend-color"></div>
                     </div>
-                    <div class="flex items-center text-white/70 text-xs font-sans mt-2">
-                        <i class="fas fa-hospital-alt mr-3 text-brand-gold"></i>
-                        KPC Medical College
-                    </div>
-                </div>
-            </div>
 
-            <!-- Right: Content -->
-            <div class="lg:col-span-7 reveal delay-200 lg:pl-8">
-                <span class="tier-2">The Academic Clinician</span>
-                <h2 class="tier-1 mb-8">Bridging Research and Patient Care</h2>
-
-                <div class="tier-3 space-y-5 mb-10">
-                    <p>Dr. Anupam Das is a rare clinician-scientist operating at the vanguard of modern dermatology.
-                        Through an unwavering commitment to both laboratory discovery and bedside empathy, he solves the
-                        most challenging dermatological cases in Eastern India.</p>
-                    <p>His core clinical work focuses extensively on dermatophytosis, allergic disorders, metabolic
-                        syndrome, melasma, and arsenicosis management. As a Gold Medalist from WBUHS, his treatment
-                        protocols are defined by precision rather than presumption.</p>
-                </div>
-
-                <!-- Animated Qualification List -->
-                <div class="flex flex-col space-y-4 mb-10">
+                    <!-- Overlapping Dark Card -->
                     <div
-                        class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
-                        <div
-                            class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
-                            MD Dermatology — Gold Medalist</div>
-                        <div class="text-brand-muted text-sm mt-1">WBUHS, Kolkata (2015)</div>
-                    </div>
-                    <div
-                        class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
-                        <div
-                            class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
-                            Dual Fellowship</div>
-                        <div class="text-brand-muted text-sm mt-1">FRCP (London) & FACDI (India)</div>
-                    </div>
-                    <div
-                        class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
-                        <div
-                            class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
-                            Assistant Professor</div>
-                        <div class="text-brand-muted text-sm mt-1">KPC Medical College and Hospital, Kolkata</div>
+                        class="absolute -bottom-8 -right-4 lg:-right-12 bg-brand-navy p-6 shadow-2xl z-20 w-72 flex flex-col justify-center hero-float border-t-2 border-brand-gold">
+                        <div class="font-serif text-2xl text-white mb-1">Dr. Anupam Das</div>
+                        <div class="font-display text-[10px] text-brand-gold uppercase tracking-widest mb-4">FRCP
+                            (London),
+                            FACDI</div>
+                        <div class="flex items-center text-white/70 text-xs font-sans border-t border-white/10 pt-3">
+                            <i class="fas fa-id-card mr-3 text-brand-gold"></i>
+                            WBMC Reg. 67385
+                        </div>
+                        <div class="flex items-center text-white/70 text-xs font-sans mt-2">
+                            <i class="fas fa-hospital-alt mr-3 text-brand-gold"></i>
+                            KPC Medical College
+                        </div>
                     </div>
                 </div>
 
-                <!-- Info Chips -->
-                <div class="flex flex-wrap gap-3">
-                    <span
-                        class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-display font-medium text-brand-navy"><i
-                            class="fas fa-language text-brand-gold mr-2"></i>English, Bengali, Hindi</span>
-                    <span
-                        class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-display font-medium text-brand-navy"><i
-                            class="fas fa-user-md text-brand-gold mr-2"></i>14+ Years Practice</span>
-                </div>
-            </div>
+                <!-- Right: Content -->
+                <div class="lg:col-span-7 reveal delay-200 lg:pl-8">
+                    <span class="tier-2">The Academic Clinician</span>
+                    <h2 class="tier-1 mb-8">Bridging Research and Patient Care</h2>
 
-        </div>
-    </div>
-</section>
+                    <div class="tier-3 space-y-5 mb-10">
+                        <p>Dr. Anupam Das is a rare clinician-scientist operating at the vanguard of modern dermatology.
+                            Through an unwavering commitment to both laboratory discovery and bedside empathy, he solves
+                            the
+                            most challenging dermatological cases in Eastern India.</p>
+                        <p>His core clinical work focuses extensively on dermatophytosis, allergic disorders, metabolic
+                            syndrome, melasma, and arsenicosis management. As a Gold Medalist from WBUHS, his treatment
+                            protocols are defined by precision rather than presumption.</p>
+                    </div>
 
-<!-- Specialties Section -->
-<section id="specialties" class="py-24 bg-brand-navy relative overflow-hidden text-white">
-    <!-- Background Image overlay -->
-    <div class="absolute inset-0 z-0 opacity-10 mix-blend-luminosity">
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&auto=format"
-            alt="Dermatology Skin" class="w-full h-full object-cover">
-    </div>
-    <div class="absolute inset-0 bg-brand-navy/90 z-0"></div>
+                    <!-- Animated Qualification List -->
+                    <div class="flex flex-col space-y-4 mb-10">
+                        <div
+                            class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
+                            <div
+                                class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
+                                MD Dermatology — Gold Medalist</div>
+                            <div class="text-brand-muted text-sm mt-1">WBUHS, Kolkata (2015)</div>
+                        </div>
+                        <div
+                            class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
+                            <div
+                                class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
+                                Dual Fellowship</div>
+                            <div class="text-brand-muted text-sm mt-1">FRCP (London) & FACDI (India)</div>
+                        </div>
+                        <div
+                            class="pl-4 border-l-2 border-gray-200 hover:border-brand-gold transition-colors duration-300 group cursor-default">
+                            <div
+                                class="font-display text-sm font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">
+                                Assistant Professor</div>
+                            <div class="text-brand-muted text-sm mt-1">KPC Medical College and Hospital, Kolkata</div>
+                        </div>
+                    </div>
 
-    <div class="container mx-auto px-6 lg:px-12 relative z-10">
-        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-            <span class="tier-2 tier-3-light">Areas of Practice</span>
-            <h2 class="tier-1 tier-1-light">Clinical Expertise</h2>
-            <p class="tier-3 tier-3-light mt-4">Uncompromising diagnostic accuracy and advanced treatment modalities for
-                every layer of skin health.</p>
-        </div>
-
-        <!-- 6 Card Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">01</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">
-                    Dermatophytosis</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Targeted, evidence-based management of complex
-                    fungal infections and chronic recurrence.</p>
-            </div>
-            <!-- Card 2 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-100 border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">02</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Allergic
-                    Disorders</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Diagnostic patch testing and systemic therapies
-                    for severe eczema, atopic dermatitis, and urticaria.</p>
-            </div>
-            <!-- Card 3 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-200 border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">03</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Metabolic
-                    Syndrome</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Holistic treatment of acanthosis nigricans and
-                    skin manifestations of systemic metabolic disease.</p>
-            </div>
-            <!-- Card 4 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">04</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Pigmentary
-                    Disorders</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Clinical management of melasma, vitiligo, and
-                    hyperpigmentation using advanced peeling and topicals.</p>
-            </div>
-            <!-- Card 5 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-100 border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">05</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Arsenicosis
-                </h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Specialized diagnosis and management of
-                    cutaneous manifestations due to chronic arsenic toxicity.</p>
-            </div>
-            <!-- Card 6 -->
-            <div
-                class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-200 border-draw group cursor-default">
-                <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">06</span>
-                <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Aesthetic &
-                    Surg</h3>
-                <p class="text-brand-muted text-sm leading-relaxed mt-3">Precision scar revision, diagnostic biopsies,
-                    and minimally invasive excisions for benign and malignant lesions.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Research & Global Impact Split -->
-<section id="research" class="bg-brand-cream border-b border-gray-200">
-    <div class="grid lg:grid-cols-2">
-        <!-- Left: Full bleed image -->
-        <div class="relative min-h-[50vh] lg:min-h-[80vh] flex items-center justify-center p-12 overflow-hidden reveal">
-            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1200&auto=format" alt="Lab Science"
-                class="absolute inset-0 w-full h-full object-cover img-zoom" loading="lazy">
-            <div class="absolute inset-0 bg-brand-navy/60 dark-overlay"></div>
-            <div class="relative z-10 text-center text-white p-8 border border-white/20 backdrop-blur-md">
-                <div class="font-serif text-[120px] leading-none text-brand-gold mb-2">310<span
-                        class="text-6xl align-top">+</span></div>
-                <div class="font-display text-sm tracking-[0.2em] uppercase font-bold">Peer-Reviewed Publications</div>
-            </div>
-        </div>
-
-        <!-- Right: Content Array -->
-        <div class="p-8 lg:p-20 xl:p-24 flex flex-col justify-center reveal delay-200">
-            <span class="tier-2">The Expert's Expert</span>
-            <h2 class="tier-1 mb-10">Global Academic Impact</h2>
-
-            <!-- Avatar and Title -->
-            <div class="flex items-center gap-6 mb-12 pb-8 border-b border-gray-200">
-                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-gold shrink-0">
-                    <img src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg" alt="Avatar"
-                        class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <div class="card-heading mb-1">Editorial Leadership</div>
-                    <div class="text-brand-muted text-sm">Directing dialogue in the world's leading journals.</div>
-                </div>
-            </div>
-
-            <!-- Editorial List -->
-            <div class="space-y-4 mb-12">
-                <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
-                    <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Editor Elect</span>
-                    <span class="font-serif text-2xl text-brand-navy">Pigment International</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
-                    <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Associate
-                        Editor</span>
-                    <span class="font-serif text-2xl text-brand-navy">Clinical and Experimental Dermatology</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
-                    <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Associate & Deputy
-                        Editor</span>
-                    <span class="font-serif text-2xl text-brand-navy">Indian Journal of Dermatology (IJD)</span>
-                </div>
-                <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
-                    <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Assistant
-                        Editor</span>
-                    <span class="font-serif text-2xl text-brand-navy">IJDVL</span>
-                </div>
-            </div>
-
-            <!-- Committee Memberships -->
-            <div class="mb-12">
-                <h3 class="font-display text-sm font-bold tracking-widest uppercase text-brand-navy mb-6">Committees &
-                    Boards</h3>
-                <ul class="space-y-4 text-sm text-brand-muted font-medium">
-                    <li class="flex items-start">
+                    <!-- Info Chips -->
+                    <div class="flex flex-wrap gap-3">
                         <span
-                            class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">2026–27</span>
-                        Executive Committee Member | Asian Society of Pediatric Dermatology
-                    </li>
-                    <li class="flex items-start">
+                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-display font-medium text-brand-navy"><i
+                                class="fas fa-language text-brand-gold mr-2"></i>English, Bengali, Hindi</span>
                         <span
-                            class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">2024–25</span>
-                        Member | IADVL Academy
-                    </li>
-                    <li class="flex items-start">
-                        <span
-                            class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">Present</span>
-                        Joint Secretary | Pigmentary Disorders Society
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="https://www.researchgate.net/profile/Anupam_Das20" target="_blank" class="btn-primary flex-1">
-                    <i class="fab fa-researchgate mr-2 text-lg"></i> ResearchGate Profile
-                </a>
-                <a href="https://orcid.org/0000-0003-0841-9597" target="_blank" class="btn-ghost flex-1">
-                    <i class="fab fa-orcid mr-2 text-lg"></i> ORCID Profile
-                </a>
-            </div>
-        </div>
-    </div>
-</section><!-- Awards & Distinctions (NEW) -->
-<section id="awards" class="py-24 bg-brand-navy text-white relative border-t border-white/5">
-    <div class="container mx-auto px-6 lg:px-12">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-            <span class="tier-2 tier-3-light">Recognition & Honours</span>
-            <h2 class="tier-1 tier-1-light">Awards & Distinctions</h2>
-        </div>
-
-        <!-- Horizontal scroll on mobile / Grid on desktop -->
-        <div
-            class="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-6 pb-8 lg:pb-0 snap-x snap-mandatory -mx-6 px-6 lg:mx-0 lg:px-0 scrollbar-hide">
-            <!-- Award 1 -->
-            <div
-                class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal">
-                <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
-                <h3 class="card-heading card-heading-light mb-2">Gold Medal in Dermatology</h3>
-                <p class="text-brand-muted text-sm mb-6">Best PGT Award</p>
-                <div
-                    class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
-                    2012–2015</div>
-            </div>
-            <!-- Award 2 -->
-            <div
-                class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-100">
-                <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
-                <h3 class="card-heading card-heading-light mb-2">IADVL Scholarship</h3>
-                <p class="text-brand-muted text-sm mb-6">World Congress of Dermatology, Vancouver</p>
-                <div
-                    class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
-                    2015</div>
-            </div>
-            <!-- Award 3 -->
-            <div
-                class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-200">
-                <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
-                <h3 class="card-heading card-heading-light mb-2">Prof. F. Handa Prize</h3>
-                <p class="text-brand-muted text-sm mb-6">43rd National IADVL Conference, Mangalore</p>
-                <div
-                    class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
-                    2015</div>
-            </div>
-            <!-- Award 4 -->
-            <div
-                class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal">
-                <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
-                <h3 class="card-heading card-heading-light mb-2">Dr. U P Basu Memorial Award</h3>
-                <p class="text-brand-muted text-sm mb-6">Best Speaker, Junior Doctors' Symposium</p>
-                <div
-                    class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
-                    2015</div>
-            </div>
-            <!-- Award 5 -->
-            <div
-                class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-100">
-                <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
-                <h3 class="card-heading card-heading-light mb-2">Dr. Amar Kant Jha Gold Medal</h3>
-                <p class="text-brand-muted text-sm mb-6">Best Paper, IADVL East Zone, Jharkhand</p>
-                <div
-                    class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
-                    2014</div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Locations -->
-<section id="locations" class="py-24 bg-brand-cream relative">
-    <div class="container mx-auto px-6 lg:px-12">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-            <span class="tier-2">Logistics</span>
-            <h2 class="tier-1">Clinic Locations & Schedule</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            <!-- Card 1 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
-                <i
-                    class="fas fa-hospital text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">KPC Medical College and Hospital</h3>
-                <p class="text-brand-muted text-sm mb-6">Jadavpur</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    Mon-Sat: 9 AM - 2 PM</div>
-            </div>
-            <!-- Card 2 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
-                <i
-                    class="fas fa-clinic-medical text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">Curo Clinic</h3>
-                <p class="text-brand-muted text-sm mb-6">Salt Lake</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    Tue, Thu, Sat</div>
-            </div>
-            <!-- Card 3 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-200 group">
-                <i
-                    class="fas fa-heartbeat text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">Apollo Clinic</h3>
-                <p class="text-brand-muted text-sm mb-6">Bansdroni / Narendrapur</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    Wed & Fri</div>
-            </div>
-            <!-- Card 4 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
-                <i
-                    class="fas fa-stethoscope text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">Iris Hospital</h3>
-                <p class="text-brand-muted text-sm mb-6">Baghajatin</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    Thu: 3 PM - 4 PM</div>
-            </div>
-            <!-- Card 5 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
-                <i
-                    class="fas fa-vial text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">Central Diagnostic</h3>
-                <p class="text-brand-muted text-sm mb-6">Barrackpore</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    Mon & Wed Evening</div>
-            </div>
-            <!-- Card 6 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-200 group">
-                <i
-                    class="fas fa-clinic-medical text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">Visalya Superspeciality</h3>
-                <p class="text-brand-muted text-sm mb-6">Barrackpore</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    By Appointment</div>
-            </div>
-            <!-- Card 7 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
-                <i
-                    class="fas fa-hospital text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">C.M.C Medical Center</h3>
-                <p class="text-brand-muted text-sm mb-6">12 Loudon Street, Kolkata</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    By Appointment</div>
-            </div>
-            <!-- Card 8 -->
-            <div
-                class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
-                <i
-                    class="fas fa-tablets text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                <h3 class="card-heading mb-1">The Drug House</h3>
-                <p class="text-brand-muted text-sm mb-6">Shyamnagar, Barrackpore</p>
-                <div
-                    class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
-                    By Appointment</div>
-            </div>
-        </div>
-
-        <div class="text-center reveal">
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
-                class="inline-flex items-center justify-center px-10 py-5 bg-[#25D366] text-white rounded-full font-display font-bold hover:bg-[#1ebd5a] transition-colors shadow-lg shadow-[#25D366]/20">
-                <i class="fab fa-whatsapp text-2xl mr-3"></i> Book Your Slot via WhatsApp
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="py-24 bg-white">
-    <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
-        <div class="text-center mb-16 reveal">
-            <span class="tier-2">Patient Education</span>
-            <h2 class="tier-1">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="space-y-4">
-            <!-- FAQ 1 -->
-            <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal">
-                <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
-                    onclick="toggleFaq(this)">
-                    <span class="card-heading !mb-0 text-lg">Does Dr. Das accept new patients?</span>
-                    <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
-                </button>
-                <div class="faq-content px-8">
-                    <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Yes, Dr. Das is currently accepting new
-                        patients across all his clinic locations. Due to high demand, early booking via WhatsApp is
-                        recommended to secure your preferred slot.</p>
+                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-display font-medium text-brand-navy"><i
+                                class="fas fa-user-md text-brand-gold mr-2"></i>14+ Years Practice</span>
+                    </div>
                 </div>
+
             </div>
-            <!-- FAQ 2 -->
-            <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-100">
-                <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
-                    onclick="toggleFaq(this)">
-                    <span class="card-heading !mb-0 text-lg">How do I reach Dr. Das for an urgent consultation?</span>
-                    <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
-                </button>
-                <div class="faq-content px-8">
-                    <p class="tier-3 pb-6 border-t border-gray-200 pt-6">For urgent consultations, please message the
-                        dedicated WhatsApp line and clearly state "URGENT". The clinic staff prioritizes these requests
-                        and will accommodate you at the earliest available clinic timing.</p>
+        </div>
+    </section>
+
+    <!-- Specialties Section -->
+    <section id="specialties" class="py-24 bg-brand-navy relative overflow-hidden text-white">
+        <!-- Background Image overlay -->
+        <div class="absolute inset-0 z-0 opacity-10 mix-blend-luminosity">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&auto=format"
+                alt="Dermatology Skin" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-brand-navy/90 z-0"></div>
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <span class="tier-2 tier-3-light">Areas of Practice</span>
+                <h2 class="tier-1 tier-1-light">Clinical Expertise</h2>
+                <p class="tier-3 tier-3-light mt-4">Uncompromising diagnostic accuracy and advanced treatment modalities
+                    for
+                    every layer of skin health.</p>
+            </div>
+
+            <!-- 6 Card Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">01</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">
+                        Dermatophytosis</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Targeted, evidence-based management of
+                        complex
+                        fungal infections and chronic recurrence.</p>
                 </div>
-            </div>
-            <!-- FAQ 3 -->
-            <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-200">
-                <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
-                    onclick="toggleFaq(this)">
-                    <span class="card-heading !mb-0 text-lg">Is laser safe for my skin type?</span>
-                    <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
-                </button>
-                <div class="faq-content px-8">
-                    <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Yes, modern laser treatments are highly
-                        customizable. Dr. Das performs a thorough skin typing assessment prior to any procedure to
-                        select the correct wavelength and energy settings, ensuring maximum safety and efficacy for
-                        South Asian skin types.</p>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-100 border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">02</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Allergic
+                        Disorders</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Diagnostic patch testing and systemic
+                        therapies
+                        for severe eczema, atopic dermatitis, and urticaria.</p>
                 </div>
-            </div>
-            <!-- FAQ 4 -->
-            <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-300">
-                <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
-                    onclick="toggleFaq(this)">
-                    <span class="card-heading !mb-0 text-lg">How to manage chronic Psoriasis?</span>
-                    <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
-                </button>
-                <div class="faq-content px-8">
-                    <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Management is multifaceted, combining topical
-                        therapies, phototherapy, systemic medications, or advanced biologics. Dr. Das develops a
-                        step-wise, personalized treatment plan aimed at long-term remission and improving your quality
-                        of life.</p>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-200 border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">03</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Metabolic
+                        Syndrome</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Holistic treatment of acanthosis nigricans
+                        and
+                        skin manifestations of systemic metabolic disease.</p>
                 </div>
-            </div>
-            <!-- FAQ 5 -->
-            <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-400">
-                <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
-                    onclick="toggleFaq(this)">
-                    <span class="card-heading !mb-0 text-lg">What to expect during a skin biopsy?</span>
-                    <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
-                </button>
-                <div class="faq-content px-8">
-                    <p class="tier-3 pb-6 border-t border-gray-200 pt-6">A skin biopsy is a quick, minor outpatient
-                        procedure performed under local anesthesia. A tiny sample of skin is removed for microscopic
-                        examination to confirm a diagnosis. Post-procedure care is simple, and scarring is minimal.</p>
+                <!-- Card 4 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">04</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Pigmentary
+                        Disorders</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Clinical management of melasma, vitiligo,
+                        and
+                        hyperpigmentation using advanced peeling and topicals.</p>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-100 border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">05</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">
+                        Arsenicosis
+                    </h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Specialized diagnosis and management of
+                        cutaneous manifestations due to chronic arsenic toxicity.</p>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="bg-white/5 backdrop-blur-sm p-8 rounded-none border border-white/10 hover:bg-brand-gold/10 transition-colors duration-500 reveal delay-200 border-draw group cursor-default">
+                    <span class="font-display text-3xl text-brand-gold font-bold mb-6 block opacity-50">06</span>
+                    <h3 class="card-heading card-heading-light group-hover:text-brand-gold transition-colors">Aesthetic
+                        &
+                        Surg</h3>
+                    <p class="text-brand-muted text-sm leading-relaxed mt-3">Precision scar revision, diagnostic
+                        biopsies,
+                        and minimally invasive excisions for benign and malignant lesions.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-brand-navy text-white pt-20 pb-10 border-t border-white/10">
-    <div class="container mx-auto px-6 lg:px-12">
-        <div class="grid md:grid-cols-3 gap-12 mb-16">
-            <!-- Brand -->
-            <div>
-                <a href="#" class="flex flex-col leading-none mb-6">
-                    <span class="font-serif text-3xl text-white">Dr. Anupam Das</span>
-                    <span class="font-display text-[11px] tracking-widest text-brand-gold uppercase mt-2">Dermatologist
-                        · KPC Medical College, Kolkata</span>
-                </a>
-                <p class="text-brand-muted text-sm leading-relaxed max-w-sm">Combining laboratory discovery with bedside
-                    empathy to solve the most challenging dermatological cases in Eastern India.</p>
+    <!-- Research & Global Impact Split -->
+    <section id="research" class="bg-brand-cream border-b border-gray-200">
+        <div class="grid lg:grid-cols-2">
+            <!-- Left: Full bleed image -->
+            <div
+                class="relative min-h-[50vh] lg:min-h-[80vh] flex items-center justify-center p-12 overflow-hidden reveal">
+                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1200&auto=format"
+                    alt="Lab Science" class="absolute inset-0 w-full h-full object-cover img-zoom" loading="lazy">
+                <div class="absolute inset-0 bg-brand-navy/60 dark-overlay"></div>
+                <div class="relative z-10 text-center text-white p-8 border border-white/20 backdrop-blur-md">
+                    <div class="font-serif text-[120px] leading-none text-brand-gold mb-2">310<span
+                            class="text-6xl align-top">+</span></div>
+                    <div class="font-display text-sm tracking-[0.2em] uppercase font-bold">Peer-Reviewed Publications
+                    </div>
+                </div>
             </div>
 
-            <!-- Links -->
-            <div>
-                <h4 class="font-display text-sm font-bold tracking-widest text-white uppercase mb-6">Quick Links</h4>
-                <ul class="space-y-3 font-sans text-brand-muted text-sm">
-                    <li><a href="#about" class="hover:text-brand-gold transition-colors">About</a></li>
-                    <li><a href="#specialties" class="hover:text-brand-gold transition-colors">Specialties</a></li>
-                    <li><a href="#locations" class="hover:text-brand-gold transition-colors">Locations</a></li>
-                    <li><a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a></li>
-                </ul>
-            </div>
+            <!-- Right: Content Array -->
+            <div class="p-8 lg:p-20 xl:p-24 flex flex-col justify-center reveal delay-200">
+                <span class="tier-2">The Expert's Expert</span>
+                <h2 class="tier-1 mb-10">Global Academic Impact</h2>
 
-            <!-- Social -->
-            <div>
-                <h4 class="font-display text-sm font-bold tracking-widest text-white uppercase mb-6">Connect</h4>
-                <div class="flex space-x-4">
-                    <a href="https://linkedin.com/in/dr-anupam-das-bb927bba" target="_blank"
-                        class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                <!-- Avatar and Title -->
+                <div class="flex items-center gap-6 mb-12 pb-8 border-b border-gray-200">
+                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-gold shrink-0">
+                        <img src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg" alt="Avatar"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <div class="card-heading mb-1">Editorial Leadership</div>
+                        <div class="text-brand-muted text-sm">Directing dialogue in the world's leading journals.</div>
+                    </div>
+                </div>
+
+                <!-- Editorial List -->
+                <div class="space-y-4 mb-12">
+                    <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
+                        <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Editor
+                            Elect</span>
+                        <span class="font-serif text-2xl text-brand-navy">Pigment International</span>
+                    </div>
+                    <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
+                        <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Associate
+                            Editor</span>
+                        <span class="font-serif text-2xl text-brand-navy">Clinical and Experimental Dermatology</span>
+                    </div>
+                    <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
+                        <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Associate &
+                            Deputy
+                            Editor</span>
+                        <span class="font-serif text-2xl text-brand-navy">Indian Journal of Dermatology (IJD)</span>
+                    </div>
+                    <div class="flex flex-col border-l-2 border-brand-gold pl-4 py-1">
+                        <span class="text-sm font-medium text-brand-muted uppercase tracking-wider mb-1">Assistant
+                            Editor</span>
+                        <span class="font-serif text-2xl text-brand-navy">IJDVL</span>
+                    </div>
+                </div>
+
+                <!-- Committee Memberships -->
+                <div class="mb-12">
+                    <h3 class="font-display text-sm font-bold tracking-widest uppercase text-brand-navy mb-6">Committees
+                        &
+                        Boards</h3>
+                    <ul class="space-y-4 text-sm text-brand-muted font-medium">
+                        <li class="flex items-start">
+                            <span
+                                class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">2026–27</span>
+                            Executive Committee Member | Asian Society of Pediatric Dermatology
+                        </li>
+                        <li class="flex items-start">
+                            <span
+                                class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">2024–25</span>
+                            Member | IADVL Academy
+                        </li>
+                        <li class="flex items-start">
+                            <span
+                                class="bg-brand-navy text-brand-gold px-2 py-0.5 rounded text-[10px] mr-3 mt-0.5 shrink-0">Present</span>
+                            Joint Secretary | Pigmentary Disorders Society
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
                     <a href="https://www.researchgate.net/profile/Anupam_Das20" target="_blank"
-                        class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
-                        <i class="fab fa-researchgate"></i>
+                        class="btn-primary flex-1">
+                        <i class="fab fa-researchgate mr-2 text-lg"></i> ResearchGate Profile
                     </a>
-                    <a href="https://orcid.org/0000-0003-0841-9597" target="_blank"
-                        class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
-                        <i class="fab fa-orcid"></i>
+                    <a href="https://orcid.org/0000-0003-0841-9597" target="_blank" class="btn-ghost flex-1">
+                        <i class="fab fa-orcid mr-2 text-lg"></i> ORCID Profile
                     </a>
                 </div>
             </div>
         </div>
+    </section><!-- Awards & Distinctions (NEW) -->
+    <section id="awards" class="py-24 bg-brand-navy text-white relative border-t border-white/5">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="tier-2 tier-3-light">Recognition & Honours</span>
+                <h2 class="tier-1 tier-1-light">Awards & Distinctions</h2>
+            </div>
 
-        <div
-            class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-brand-muted">
-            <p>&copy; 2026 Dr. Anupam Das. All rights reserved.</p>
-            <p class="mt-4 md:mt-0 font-display tracking-widest uppercase">WBMC Reg. No. 67385</p>
+            <!-- Horizontal scroll on mobile / Grid on desktop -->
+            <div
+                class="flex overflow-x-auto lg:grid lg:grid-cols-3 gap-6 pb-8 lg:pb-0 snap-x snap-mandatory -mx-6 px-6 lg:mx-0 lg:px-0 scrollbar-hide">
+                <!-- Award 1 -->
+                <div
+                    class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal">
+                    <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
+                    <h3 class="card-heading card-heading-light mb-2">Gold Medal in Dermatology</h3>
+                    <p class="text-brand-muted text-sm mb-6">Best PGT Award</p>
+                    <div
+                        class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
+                        2012–2015</div>
+                </div>
+                <!-- Award 2 -->
+                <div
+                    class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-100">
+                    <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
+                    <h3 class="card-heading card-heading-light mb-2">IADVL Scholarship</h3>
+                    <p class="text-brand-muted text-sm mb-6">World Congress of Dermatology, Vancouver</p>
+                    <div
+                        class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
+                        2015</div>
+                </div>
+                <!-- Award 3 -->
+                <div
+                    class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-200">
+                    <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
+                    <h3 class="card-heading card-heading-light mb-2">Prof. F. Handa Prize</h3>
+                    <p class="text-brand-muted text-sm mb-6">43rd National IADVL Conference, Mangalore</p>
+                    <div
+                        class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
+                        2015</div>
+                </div>
+                <!-- Award 4 -->
+                <div
+                    class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal">
+                    <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
+                    <h3 class="card-heading card-heading-light mb-2">Dr. U P Basu Memorial Award</h3>
+                    <p class="text-brand-muted text-sm mb-6">Best Speaker, Junior Doctors' Symposium</p>
+                    <div
+                        class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
+                        2015</div>
+                </div>
+                <!-- Award 5 -->
+                <div
+                    class="bg-white/5 border border-white/10 p-8 shrink-0 w-[85vw] md:w-[60vw] lg:w-auto snap-center flex flex-col items-start reveal delay-100">
+                    <i class="fas fa-trophy text-brand-gold text-3xl mb-6"></i>
+                    <h3 class="card-heading card-heading-light mb-2">Dr. Amar Kant Jha Gold Medal</h3>
+                    <p class="text-brand-muted text-sm mb-6">Best Paper, IADVL East Zone, Jharkhand</p>
+                    <div
+                        class="mt-auto bg-white/10 px-4 py-1.5 rounded text-xs font-display tracking-widest text-brand-gold mt-auto">
+                        2014</div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</footer>
+    </section>
 
-<!-- Scripts -->
-<script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (window.scrollY > 80) {
-            nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-            nav.classList.remove('bg-transparent');
-        } else {
-            nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-            nav.classList.add('bg-transparent');
-        }
-    });
+    <!-- Locations -->
+    <section id="locations" class="py-24 bg-brand-cream relative">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="tier-2">Logistics</span>
+                <h2 class="tier-1">Clinic Locations & Schedule</h2>
+            </div>
 
-    // Intersection Observer for animations & counters
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
+                    <i
+                        class="fas fa-hospital text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">KPC Medical College and Hospital</h3>
+                    <p class="text-brand-muted text-sm mb-6">Jadavpur</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        Mon-Sat: 9 AM - 2 PM</div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
+                    <i
+                        class="fas fa-clinic-medical text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">Curo Clinic</h3>
+                    <p class="text-brand-muted text-sm mb-6">Salt Lake</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        Tue, Thu, Sat</div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-200 group">
+                    <i
+                        class="fas fa-hospital-user text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">Apollo Clinic</h3>
+                    <p class="text-brand-muted text-sm mb-6">Bansdroni / Narendrapur</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        Wed & Fri</div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
+                    <i
+                        class="fas fa-stethoscope text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">Iris Hospital</h3>
+                    <p class="text-brand-muted text-sm mb-6">Baghajatin</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        Thu: 3 PM - 4 PM</div>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
+                    <i
+                        class="fas fa-vial text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">Central Diagnostic</h3>
+                    <p class="text-brand-muted text-sm mb-6">Barrackpore</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        Mon & Wed Evening</div>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-200 group">
+                    <i
+                        class="fas fa-clinic-medical text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">Visalya Superspeciality</h3>
+                    <p class="text-brand-muted text-sm mb-6">Barrackpore</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        By Appointment</div>
+                </div>
+                <!-- Card 7 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal group">
+                    <i
+                        class="fas fa-hospital text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">C.M.C Medical Center</h3>
+                    <p class="text-brand-muted text-sm mb-6">12 Loudon Street, Kolkata</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        By Appointment</div>
+                </div>
+                <!-- Card 8 -->
+                <div
+                    class="bg-white p-8 border-t-2 border-transparent hover:border-brand-gold transition-colors duration-300 shadow-sm reveal delay-100 group">
+                    <i
+                        class="fas fa-tablets text-brand-navy text-2xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                    <h3 class="card-heading mb-1">The Drug House</h3>
+                    <p class="text-brand-muted text-sm mb-6">Shyamnagar, Barrackpore</p>
+                    <div
+                        class="inline-block bg-brand-navy text-brand-gold px-3 py-1.5 rounded-full text-xs font-bold font-display uppercase tracking-widest">
+                        By Appointment</div>
+                </div>
+            </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+            <div class="text-center reveal">
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                    class="inline-flex items-center justify-center px-10 py-5 bg-[#25D366] text-white rounded-full font-display font-bold hover:bg-[#1ebd5a] transition-colors shadow-lg shadow-[#25D366]/20">
+                    <i class="fab fa-whatsapp text-2xl mr-3"></i> Book Your Slot via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
 
-                // Trigger counters if they exist inside the reveal element
-                const counters = entry.target.querySelectorAll('.counter');
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const duration = 2000;
-                    const totalFrames = Math.round((duration / 1000) * 60);
-                    const increment = target / totalFrames;
-                    let current = 0;
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
+            <div class="text-center mb-16 reveal">
+                <span class="tier-2">Patient Education</span>
+                <h2 class="tier-1">Frequently Asked Questions</h2>
+            </div>
 
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            counter.innerText = Math.ceil(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    updateCounter();
-                    counter.classList.remove('counter'); // prevent re-trigger
-                });
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span class="card-heading !mb-0 text-lg">Does Dr. Das accept new patients?</span>
+                        <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-8">
+                        <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Yes, Dr. Das is currently accepting new
+                            patients across all his clinic locations. Due to high demand, early booking via WhatsApp is
+                            recommended to secure your preferred slot.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-100">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span class="card-heading !mb-0 text-lg">How do I reach Dr. Das for an urgent
+                            consultation?</span>
+                        <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-8">
+                        <p class="tier-3 pb-6 border-t border-gray-200 pt-6">For urgent consultations, please message
+                            the
+                            dedicated WhatsApp line and clearly state "URGENT". The clinic staff prioritizes these
+                            requests
+                            and will accommodate you at the earliest available clinic timing.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-200">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span class="card-heading !mb-0 text-lg">Is laser safe for my skin type?</span>
+                        <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-8">
+                        <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Yes, modern laser treatments are highly
+                            customizable. Dr. Das performs a thorough skin typing assessment prior to any procedure to
+                            select the correct wavelength and energy settings, ensuring maximum safety and efficacy for
+                            South Asian skin types.</p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-300">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span class="card-heading !mb-0 text-lg">How to manage chronic Psoriasis?</span>
+                        <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-8">
+                        <p class="tier-3 pb-6 border-t border-gray-200 pt-6">Management is multifaceted, combining
+                            topical
+                            therapies, phototherapy, systemic medications, or advanced biologics. Dr. Das develops a
+                            step-wise, personalized treatment plan aimed at long-term remission and improving your
+                            quality
+                            of life.</p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item border border-gray-200 rounded-none bg-brand-cream reveal delay-400">
+                    <button class="w-full px-8 py-6 text-left flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(this)">
+                        <span class="card-heading !mb-0 text-lg">What to expect during a skin biopsy?</span>
+                        <i class="fas fa-chevron-down text-brand-navy faq-icon"></i>
+                    </button>
+                    <div class="faq-content px-8">
+                        <p class="tier-3 pb-6 border-t border-gray-200 pt-6">A skin biopsy is a quick, minor outpatient
+                            procedure performed under local anesthesia. A tiny sample of skin is removed for microscopic
+                            examination to confirm a diagnosis. Post-procedure care is simple, and scarring is minimal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                observer.unobserve(entry.target);
+    <!-- Footer -->
+    <footer class="bg-brand-navy text-white pt-20 pb-10 border-t border-white/10">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-3 gap-12 mb-16">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="flex flex-col leading-none mb-6">
+                        <span class="font-serif text-3xl text-white">Dr. Anupam Das</span>
+                        <span
+                            class="font-display text-[11px] tracking-widest text-brand-gold uppercase mt-2">Dermatologist
+                            · KPC Medical College, Kolkata</span>
+                    </a>
+                    <p class="text-brand-muted text-sm leading-relaxed max-w-sm">Combining laboratory discovery with
+                        bedside
+                        empathy to solve the most challenging dermatological cases in Eastern India.</p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-display text-sm font-bold tracking-widest text-white uppercase mb-6">Quick Links
+                    </h4>
+                    <ul class="space-y-3 font-sans text-brand-muted text-sm">
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About</a></li>
+                        <li><a href="#specialties" class="hover:text-brand-gold transition-colors">Specialties</a></li>
+                        <li><a href="#locations" class="hover:text-brand-gold transition-colors">Locations</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h4 class="font-display text-sm font-bold tracking-widest text-white uppercase mb-6">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/dr-anupam-das-bb927bba" target="_blank"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.researchgate.net/profile/Anupam_Das20" target="_blank"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="https://orcid.org/0000-0003-0841-9597" target="_blank"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-all">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-brand-muted">
+                <p>&copy; 2026 Dr. Anupam Das. All rights reserved.</p>
+                <p class="mt-4 md:mt-0 font-display tracking-widest uppercase">WBMC Reg. No. 67385</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+                nav.classList.add('bg-transparent');
             }
         });
-    }, observerOptions);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        // Intersection Observer for animations & counters
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
 
-    // FAQ Accordion
-    function toggleFaq(btn) {
-        const item = btn.parentElement;
-        const content = item.querySelector('.faq-content');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
 
-        document.querySelectorAll('.faq-item').forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-                otherItem.classList.remove('active');
-                otherItem.querySelector('.faq-content').style.maxHeight = null;
+                    // Trigger counters if they exist inside the reveal element
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const totalFrames = Math.round((duration / 1000) * 60);
+                        const increment = target / totalFrames;
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                        counter.classList.remove('counter'); // prevent re-trigger
+                    });
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // FAQ Accordion
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const content = item.querySelector('.faq-content');
+
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-content').style.maxHeight = null;
+                }
+            });
+
+            item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
             }
         });
 
-        item.classList.toggle('active');
-        if (item.classList.contains('active')) {
-            content.style.maxHeight = content.scrollHeight + "px";
-        } else {
-            content.style.maxHeight = null;
-        }
-    }
-
-    // Mobile Menu
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (mobileMenu.classList.contains('open')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-        }
-    });
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
