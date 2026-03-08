@@ -144,9 +144,7 @@
             transition: max-height 0.3s ease-out;
         }
 
-        .faq-item.active .faq-content {
-            max-height: 200px;
-        }
+        /* Javascript will handle max-height for smooth transition */
 
         .faq-icon {
             transition: transform 0.3s ease;
@@ -316,7 +314,7 @@
                         <!-- Main Image -->
                         <div
                             class="w-full h-full border-4 border-white shadow-2xl overflow-hidden rounded-[2rem] bg-gray-100 z-10 relative">
-                            <img src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg"
+                            <img id="hero-img" src="https://plexusmd.gumlet.io/1680110926704_1688965229294.jpeg"
                                 alt="Dr. Anupam Das - Dermatologist"
                                 class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
 
@@ -409,7 +407,7 @@
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
                         <h4 class="font-serif text-2xl text-brand-navy mb-6">Technical Details</h4>
                         <ul class="space-y-4">
-                            <li class="flex items-start">
+                            <li class="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                                 <i class="fas fa-check-circle text-brand-gold mt-1 mr-4"></i>
                                 <div>
                                     <strong class="block text-brand-navy">MD Dermatology, Venereology & Leprosy — Gold
@@ -418,7 +416,7 @@
                                         (2011)</span>
                                 </div>
                             </li>
-                            <li class="flex items-start">
+                            <li class="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                                 <i class="fas fa-check-circle text-brand-gold mt-1 mr-4"></i>
                                 <div>
                                     <strong class="block text-brand-navy">Fellowships</strong>
@@ -426,7 +424,7 @@
                                         London<br>Fellow, Association of Clinical Dermatologists of India (FACDI)</span>
                                 </div>
                             </li>
-                            <li class="flex items-start">
+                            <li class="flex items-start group hover:-translate-y-1 transition-transform duration-300">
                                 <i class="fas fa-check-circle text-brand-gold mt-1 mr-4"></i>
                                 <div>
                                     <strong class="block text-brand-navy">Academic Role</strong>
@@ -716,7 +714,7 @@
 
                 <!-- Location 5 -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-100">
+                    class="clinic-extra hidden md:block bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-100">
                     <div class="flex justify-between items-start mb-6">
                         <div
                             class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
@@ -733,7 +731,7 @@
 
                 <!-- Location 6 -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-200">
+                    class="clinic-extra hidden md:block bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-200">
                     <div class="flex justify-between items-start mb-6">
                         <div
                             class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
@@ -750,7 +748,7 @@
 
                 <!-- Location 7 -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal">
+                    class="clinic-extra hidden md:block bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal">
                     <div class="flex justify-between items-start mb-6">
                         <div
                             class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
@@ -768,7 +766,7 @@
 
                 <!-- Location 8 -->
                 <div
-                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-100">
+                    class="clinic-extra hidden md:block bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow reveal delay-100">
                     <div class="flex justify-between items-start mb-6">
                         <div
                             class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
@@ -785,7 +783,14 @@
                 </div>
             </div>
 
-            <div class="mt-12 text-center reveal delay-300">
+            <div class="mt-8 text-center md:hidden reveal delay-200">
+                <button id="toggle-clinics-btn"
+                    class="text-brand-navy font-medium underline text-sm hover:text-brand-blue transition-colors">
+                    View All Clinics
+                </button>
+            </div>
+
+            <div class="mt-8 md:mt-12 text-center reveal delay-300">
                 <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
                     class="inline-flex items-center justify-center px-10 py-4 bg-brand-navy text-white rounded-full font-medium hover:bg-brand-blue transition-all hover:shadow-xl hover:-translate-y-1 hover-target transition-all">
                     Book Your Slot via WhatsApp
@@ -1036,11 +1041,43 @@
             document.querySelectorAll('.faq-item').forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-content').style.maxHeight = null;
                 }
             });
 
             item.classList.toggle('active');
+            if (item.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = null;
+            }
         }
+
+        // Toggle Extra Clinics on Mobile
+        const toggleClinicsBtn = document.getElementById('toggle-clinics-btn');
+        if (toggleClinicsBtn) {
+            toggleClinicsBtn.addEventListener('click', () => {
+                const extraClinics = document.querySelectorAll('.clinic-extra');
+                extraClinics.forEach(clinic => {
+                    clinic.classList.toggle('hidden');
+                });
+                if (toggleClinicsBtn.innerText === 'View All Clinics') {
+                    toggleClinicsBtn.innerText = 'Show Less';
+                } else {
+                    toggleClinicsBtn.innerText = 'View All Clinics';
+                    document.getElementById('locations').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        // Parallax Hero Image
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroImg = document.getElementById('hero-img');
+            if (heroImg && scrollY < window.innerHeight) {
+                heroImg.style.transform = `translateY(${scrollY * 0.15}px) scale(1.05)`;
+            }
+        });
 
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
