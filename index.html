@@ -318,7 +318,7 @@
             transition: transform 0.35s ease;
         }
 
-        .faq-item.active .faq-icon {
+        .faq-item.faq-open .faq-icon {
             transform: rotate(180deg);
         }
 
@@ -1169,14 +1169,14 @@
             const content = item.querySelector('.faq-content');
 
             document.querySelectorAll('.faq-item').forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
+                if (otherItem !== item && otherItem.classList.contains('faq-open')) {
+                    otherItem.classList.remove('faq-open');
                     otherItem.querySelector('.faq-content').style.maxHeight = null;
                 }
             });
 
-            item.classList.toggle('active');
-            if (item.classList.contains('active')) {
+            item.classList.toggle('faq-open');
+            if (item.classList.contains('faq-open')) {
                 content.style.maxHeight = content.scrollHeight + "px";
             } else {
                 content.style.maxHeight = null;
